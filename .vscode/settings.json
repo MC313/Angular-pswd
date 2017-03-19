@@ -1,0 +1,38 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"search.exclude": {
+		"**/build/**": true,
+		"**/node_modules/**": true,
+		"**/resources/css/styles.css": true,
+		"**/resources/css/styles.min.css": true,
+		"**/resources/css/styles.css.map": true,
+		"**/*.js.map": true,
+		"**/*.module.js": true,
+		"**/*.component.js": true
+	},
+	"editor.insertSpaces": false,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": false,
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	"explorer.openEditors.visible": 0,
+	"vsicons.presets.angular": true,
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/.DS_Store": true,
+		"**/*.js.map": true,
+		"**/*.spec.ts": true,
+		"**/*.js": {
+			"when": "$(basename).ts"
+		}
+	},
+	//////////////////////////////////////////////////////////////////
+	// The following will make the { brackets appear on new
+	// lines instead of on the right of the function or control block.
+	//////////////////////////////////////////////////////////////////
+	"typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+	"typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+	"javascript.format.placeOpenBraceOnNewLineForFunctions": true,
+	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true
+}
