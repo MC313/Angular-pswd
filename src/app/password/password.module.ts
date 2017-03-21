@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
-import { PasswordComponent } from '../password/password.component';
+import { GeneratePasswordComponent } from '../password/generate-password.component';
+import { PasswordResultComponent } from '../password/password-result.component';
 
 import { PasswordService } from '../password/password.service';
 
@@ -10,10 +11,12 @@ import { PasswordService } from '../password/password.service';
     SharedModule
   ],
   declarations: [
-    PasswordComponent
+    GeneratePasswordComponent,
+    PasswordResultComponent
   ],
   exports: [
-    PasswordComponent
+    GeneratePasswordComponent,
+    PasswordResultComponent
   ],
   providers: [
     PasswordService

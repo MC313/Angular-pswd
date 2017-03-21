@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core
 import { CommonModule } from '@angular/common';
 
 import { PasswordService } from '../password/password.service';
+import { PasswordResultService} from '../password/password-result.service';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ export class CoreModule
     return {
       ngModule: CoreModule,
       providers: [
-        PasswordService
+        PasswordService,
+        PasswordResultService
       ]
     };
   }
