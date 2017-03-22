@@ -7,26 +7,7 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit
+export class HomeComponent
 {
-  passwordValue: string;
-  subscription: Subscription;
 
-  constructor(private passwordResultService: PasswordResultService)
-  { }
-
-  ngOnInit()
-  {
-    this.subscription = this.passwordResultService.passwordValue$.subscribe(
-      value =>
-      {
-        console.log('VALUE', value)
-        this.passwordValue = value;
-      });
-  }
-
-  ngOnDestroy()
-  {
-    this.subscription.unsubscribe();
-  }
 }
