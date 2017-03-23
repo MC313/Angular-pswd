@@ -4,14 +4,17 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { PasswordResultService } from '../password/password-result.service';
 
+import * as Clipboard from "clipboard";
+
 @Component({
   selector: 'password-result',
   templateUrl: './password-result.component.html',
   styleUrls: ['./password-result.component.scss']
 })
+
 export class PasswordResultComponent implements OnInit, OnDestroy
 {
-
+  clipboard: Clipboard = new Clipboard('#copy-btn');
   passwordValue: string;
   subscription: Subscription;
   passwordResultOutput: FormGroup;
@@ -23,13 +26,11 @@ export class PasswordResultComponent implements OnInit, OnDestroy
     private fb: FormBuilder
   ) { }
 
-  @Input()
-  result: string;
-
   ngOnInit()
   {
     this.listenForValue();
     this.buildForm();
+    console.info('Clip', this.clipboard)
   }
 
   buildForm()
@@ -60,11 +61,30 @@ export class PasswordResultComponent implements OnInit, OnDestroy
     this.inputType = this.inputType === "password" ? "text" : "password";
   };
 
+  copyText()
+  {
+    this.clipboard.on('success', function (e)
+    {
+      console.info('Text copied successfully.');
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+
+      e.clearSelection();
+    });
+
+    this.clipboard.on('error', function (e)
+    {
+      console.info('Error copying text.', e);
+    });
+  }
+
 
 
   ngOnDestroy()
   {
+    console.warn('Removing all subscriptions and bindings.')
     this.subscription.unsubscribe();
+    this.clipboard.destroy();
   }
 
 }

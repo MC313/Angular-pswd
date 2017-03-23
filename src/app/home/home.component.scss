@@ -1,4 +1,4 @@
-#home {
+:host {
 	width: 100%;
 	height: 50em;
 	display: -webkit-box;
@@ -15,4 +15,11 @@
 	   -ms-flex-align: center;
 		  align-items: center;
 	background: #689F38;
+
+	#content-container {
+		width: 40%;
+    	padding: 20px;
+    	margin: 40px;
+    	overflow: hidden;
+	}
 }
