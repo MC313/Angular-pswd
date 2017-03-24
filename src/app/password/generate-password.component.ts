@@ -19,10 +19,7 @@ export class GeneratePasswordComponent implements OnInit
   { }
 
   ngOnInit()
-  {
-    console.info('Initializing Component')
-    this.generatePassword();
-  }
+  { }
 
   generatePassword()
   {

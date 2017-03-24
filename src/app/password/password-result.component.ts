@@ -30,7 +30,6 @@ export class PasswordResultComponent implements OnInit, OnDestroy
   {
     this.listenForValue();
     this.buildForm();
-    console.info('Clip', this.clipboard)
   }
 
   buildForm()

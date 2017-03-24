@@ -23,7 +23,8 @@
     "clipboard": "^1.6.1",
     "core-js": "^2.4.1",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.7.6"
+    "zone.js": "^0.7.6",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "@angular/cli": "1.0.0-rc.0",
