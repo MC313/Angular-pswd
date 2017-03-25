@@ -20,7 +20,7 @@ export class PasswordResultComponent implements OnInit, OnDestroy
   passwordResultOutput: FormGroup;
   passwordResult: AbstractControl;
   inputType: string = "password";
-  inputDisabled: boolean;
+  isReadOnly: boolean;
 
   constructor(
     private passwordResultService: PasswordResultService,
@@ -31,7 +31,7 @@ export class PasswordResultComponent implements OnInit, OnDestroy
   {
     this.listenForValue();
     this.buildForm();
-    this.inputDisabled = true;
+    this.isReadOnly = true;
   }
 
   buildForm()
