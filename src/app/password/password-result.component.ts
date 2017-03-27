@@ -57,6 +57,8 @@ export class PasswordResultComponent implements OnInit, OnDestroy
     })
   }
 
+  //Used to show and hide password text
+  //by dynamically changing the input field type.
   toogleInputType()
   {
     this.inputType = this.inputType === "password" ? "text" : "password";
@@ -78,8 +80,6 @@ export class PasswordResultComponent implements OnInit, OnDestroy
       console.info('Error copying text.', e);
     });
   }
-
-
 
   ngOnDestroy()
   {
