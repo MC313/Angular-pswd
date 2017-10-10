@@ -8,16 +8,14 @@ TODO:
 import { Injectable } from '@angular/core';
 
 //Javascript password strength library developed by Dropbox
-declare var zxcvbn: any;
+import * as zxcvbn from 'zxcvbn';
 
 @Injectable()
 export class PasswordService
 {
 
   constructor()
-  {
-
-  }
+  { }
 
   generatePassword()
   {

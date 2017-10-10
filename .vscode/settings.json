@@ -25,7 +25,8 @@
 		"**/*.spec.ts": true,
 		"**/*.js": {
 			"when": "$(basename).ts"
-		}
+		},
+		"**/node_modules/**": true
 	},
 	//////////////////////////////////////////////////////////////////
 	// The following will make the { brackets appear on new

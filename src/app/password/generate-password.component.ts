@@ -1,4 +1,5 @@
-import { Component, OnInit, trigger, state, style, animate, transition } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { PasswordService } from '../password/password.service';
 import { PasswordResultService } from '../password/password-result.service';

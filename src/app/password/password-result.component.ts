@@ -61,7 +61,7 @@ export class PasswordResultComponent implements OnInit, OnDestroy
   //by dynamically changing the input field type.
   toogleInputType()
   {
-    this.inputType = this.inputType === "password" ? "text" : "password";
+    this.inputType = (this.inputType === "password" ? "text" : "password");
   };
 
   copyText()
