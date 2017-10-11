@@ -21,22 +21,19 @@ import { PasswordResultService } from '../password/password-result.service';
   ]
 })
 
-export class GeneratePasswordComponent implements OnInit
-{
+export class GeneratePasswordComponent implements OnInit {
 
   result: string;
   state: string = 'unclicked';
 
   constructor(
     private ps: PasswordService,
-    private passwordResultService: PasswordResultService)
-  { }
+    private passwordResultService: PasswordResultService
+  ) { }
 
-  ngOnInit()
-  { }
+  ngOnInit() { }
 
-  generatePassword()
-  {
+  generatePassword() {
     let generatedValue = this.ps.generatePassword();
     this.passwordResultService.setPasswordValue(generatedValue);
     this.state = (this.state === 'clicked' ? 'unclicked' : 'clicked');
