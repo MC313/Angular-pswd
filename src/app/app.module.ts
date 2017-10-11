@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 /* App Root */
 import { AppComponent } from './app.component';
 
+import { ToastMessagesComponent } from './toast-messages/toast-messages.component';
+
 /* Feature Modules */
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
@@ -26,7 +28,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    ToastMessagesComponent
   ],
   bootstrap: [AppComponent]
 })

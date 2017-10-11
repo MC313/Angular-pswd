@@ -1,0 +1,4 @@
+<div class="toast-message__container" [hidden]="!message || message.dismissed" [style.color]="message?.style === 'success' ? 'green' : 'red'">
+	<span class="toast-message__close" (click)="dismissMessage()"></span>
+	{{message?.content}}
+</div>

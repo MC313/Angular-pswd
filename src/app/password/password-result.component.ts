@@ -2,7 +2,9 @@ import { Component, OnInit, OnChanges, OnDestroy, Input } from '@angular/core';
 import { FormsModule, FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
 
+import { Message } from '../shared/toast-message.model';
 import { PasswordResultService } from '../password/password-result.service';
+import { ToastMessageService } from '../core/toast-messages.service';
 
 import * as Clipboard from "clipboard";
 
@@ -15,15 +17,21 @@ import * as Clipboard from "clipboard";
 export class PasswordResultComponent implements OnInit, OnDestroy
 {
   clipboard: Clipboard = new Clipboard('#copy-btn');
-  passwordValue: string;
-  subscription: Subscription;
-  passwordResultOutput: FormGroup;
-  passwordResult: AbstractControl;
   inputType: string = "password";
   isReadOnly: boolean;
+  message: Message;
+  messageStyle: object;
+  successMessage: Message = { content: 'Password copied to clipboard', style: 'success', dismissed: undefined };
+  errorMessage: Message = { content: 'Error copying password', style: 'error', dismissed: undefined };
+  passwordResult: AbstractControl;
+  passwordResultOutput: FormGroup;
+  passwordValue: string;
+  subscription: Subscription;
+  successStyle = { 'background-color': 'green' }
 
   constructor(
     private passwordResultService: PasswordResultService,
+    private toast: ToastMessageService,
     private fb: FormBuilder
   ) { }
 
@@ -66,19 +74,28 @@ export class PasswordResultComponent implements OnInit, OnDestroy
 
   copyText()
   {
-    this.clipboard.on('success', function (e)
+    this.clipboard.on('success', (e) =>
     {
-      console.info('Text copied successfully.');
-      console.info('Action:', e.action);
-      console.info('Text:', e.text);
-
+      this.message = this.successMessage;
+      this.toast.showMessage(this.message);
+      this.setMessageStyle(this.message.style);
       e.clearSelection();
     });
 
-    this.clipboard.on('error', function (e)
+    this.clipboard.on('error', (e) =>
     {
-      console.info('Error copying text.', e);
+      this.message = this.errorMessage;
+      this.toast.showMessage(this.message);
+
+      console.error('Error copying text.', e);
     });
+  }
+
+  setMessageStyle(style: string): void
+  {
+    const successStyle = { color: 'green' }
+    const errorStyle = { color: 'red' }
+    this.messageStyle = style === 'success' ? successStyle : errorStyle;
   }
 
   ngOnDestroy()
