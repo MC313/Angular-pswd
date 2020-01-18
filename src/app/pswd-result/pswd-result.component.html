@@ -1,6 +1,5 @@
 <div class="result__container">
   <input id="resultInput" [value]="password" type={{inputType}} readonly />
   <pg-visible-button (inputTypeChanged)="updateInputType($event)"></pg-visible-button>
-  <pg-copy-button (copied)="showMessage($event)" [password]="password"></pg-copy-button>
+  <pg-copy-button (copied)="copied.next($event)" [password]="password"></pg-copy-button>
 </div>
-<p class="copy-message" [ngClass]="{'show': message, 'hide': !message}">{{message}}</p>

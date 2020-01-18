@@ -8,6 +8,7 @@ import { PswdGenerator } from './shared/password-generator';
 })
 export class AppComponent implements OnInit {
   password: string;
+  message: string;
 
   ngOnInit() {
     this.generatePassword();
@@ -15,6 +16,15 @@ export class AppComponent implements OnInit {
 
   generatePassword(): void {
     this.password = PswdGenerator.generate();
+    this.hideMessage();
+  }
+
+  showMessage({ type, msg }) {
+    this.message = msg;
+  }
+
+  hideMessage() {
+    this.message = null;
   }
 
 }

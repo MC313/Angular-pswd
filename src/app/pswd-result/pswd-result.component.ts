@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 import { InputType } from '../shared/InputType';
 
@@ -9,18 +14,11 @@ import { InputType } from '../shared/InputType';
 export class PswdResultComponent {
 
   @Input() password: string;
+  @Output() copied = new EventEmitter<{ type: string, msg: string }>();
   inputType: InputType;
-  message: string;
 
   updateInputType(inputType: InputType) {
     this.inputType = inputType;
   }
 
-  showMessage({type, msg}) {
-    this.message = msg;
-  }
-
-  hideMessage() {
-    this.message = null;
-  }
 }

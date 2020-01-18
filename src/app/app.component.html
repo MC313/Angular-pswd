@@ -1,4 +1,8 @@
 <div class="app-container">
   <pg-pswd-button (clicked)="generatePassword()"></pg-pswd-button>
-  <pg-pswd-result [password]="password"></pg-pswd-result>
+  <pg-pswd-result [password]="password" (copied)="showMessage($event)">
+  </pg-pswd-result>
+  <p class="copy-message" [ngClass]="{'show': message, 'hide': !message}">
+    {{message}}
+  </p>
 </div>
